@@ -9,10 +9,14 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: students
-          uri: lb://A-Service
+        - id: auth-login
+          uri: lb://auth-service
           predicates:
-            - Path=/a/hello
+            - Path=/login
+        - id: citizen-dashbord
+          uri: lb://citizen-service
+          predicates:
+            - Path=/citizen/dashbord    
     
 
 management:
